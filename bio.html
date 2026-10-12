@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bio · Johan de Jong</title>
+<link rel="stylesheet" href="nocturne.css">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<div class="page ">
+<div class="wrap">
+<header class="nav site-nav" id="top">
+<a class="nav-brand" href="index.html">Johan de Jong</a>
+<nav class="nav-links" id="nav-links" aria-label="Main"><a href="index.html">Home</a><a href="bio.html" aria-current="page">Bio</a><a href="cv.html">CV</a><a href="contact.html">Contact</a></nav>
+<button class="btn btn-icon btn-secondary menu-btn" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu"><svg width="18" height="18" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"/></svg></button>
+</header>
+<main>
+<section class="bio">
+<figure class="portrait">
+<div class="placeholder">portrait, dark background</div>
+<figcaption class="caption">Lisbon, 2026</figcaption>
+</figure>
+<div>
+<h6 class="text-muted" style="margin:0 0 16px">About</h6>
+<h2>I started in print, moved to software, and stayed for the research.</h2>
+<div class="prose">
+<p>I'm a product designer working where interface design meets user research. Most of my work is on tools people use all day: dashboards, internal systems, clinical software. In that kind of work, being clear matters more than being clever.</p>
+<p>Right now I lead design at Fieldnote, a small team building research software. Outside work I teach an evening interaction design course and take a lot of photographs at night.</p>
+</div>
+<div class="facts">
+<div><div class="fact-label text-muted">Based in</div><div>Lisbon, Portugal</div></div>
+<div><div class="fact-label text-muted">Focus</div><div>Data and research tools</div></div>
+<div><div class="fact-label text-muted">Currently</div><div>Design lead, Fieldnote</div></div>
+</div>
+</div>
+</section>
+</main>
+<footer class="site-foot text-muted">© 2026 Johan de Jong</footer>
+</div>
+</div>
+<script>
+const nav = document.getElementById('top'), btn = nav.querySelector('.menu-btn');
+btn.addEventListener('click', () => btn.setAttribute('aria-expanded', nav.classList.toggle('open')));
+</script>
+</body>
+</html>

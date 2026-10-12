@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CV · Johan de Jong</title>
+<link rel="stylesheet" href="nocturne.css">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<div class="page ">
+<div class="wrap">
+<header class="nav site-nav" id="top">
+<a class="nav-brand" href="index.html">Johan de Jong</a>
+<nav class="nav-links" id="nav-links" aria-label="Main"><a href="index.html">Home</a><a href="bio.html">Bio</a><a href="cv.html" aria-current="page">CV</a><a href="contact.html">Contact</a></nav>
+<button class="btn btn-icon btn-secondary menu-btn" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu"><svg width="18" height="18" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"/></svg></button>
+</header>
+<main>
+<section class="cv">
+<div class="cv-head"><h1>Curriculum vitae</h1><a class="btn btn-primary" href="#">Download PDF</a></div>
+<h6 class="section-label text-muted">Experience</h6>
+<table class="table"><tbody>
+<tr><td class="when text-muted">2024 — now</td><td><div class="role">Design Lead</div><div class="org">Fieldnote</div><div class="note text-muted">Leading a team of three designers on research software. Set up the design system and the research practice.</div></td></tr>
+<tr><td class="when text-muted">2020 — 2024</td><td><div class="role">Senior Product Designer</div><div class="org">Halden Health</div><div class="note text-muted">Clinical scheduling and patient messaging used by 40 clinics.</div></td></tr>
+<tr><td class="when text-muted">2018 — 2020</td><td><div class="role">Product Designer</div><div class="org">Commons Studio</div><div class="note text-muted">Redesigned public services with local councils, from research through to live code.</div></td></tr>
+<tr><td class="when text-muted">2016 — 2018</td><td><div class="role">Designer</div><div class="org">Prensa Porto</div><div class="note text-muted">Typesetting and book design for a small independent press.</div></td></tr>
+</tbody></table>
+<h6 class="section-label text-muted">Education</h6>
+<table class="table edu"><tbody>
+<tr><td class="when text-muted">2014 — 2016</td><td>MA Interaction Design <span class="text-muted">· Royal College of Art</span></td></tr>
+<tr><td class="when text-muted">2011 — 2014</td><td>BA Graphic Communication <span class="text-muted">· University of Porto</span></td></tr>
+</tbody></table>
+<h6 class="text-muted" style="margin:0 0 14px">Skills</h6>
+<div class="skills"><span class="tag tag-neutral">Product design</span><span class="tag tag-neutral">User research</span><span class="tag tag-neutral">Design systems</span><span class="tag tag-neutral">Prototyping</span><span class="tag tag-neutral">Figma</span><span class="tag tag-neutral">HTML &amp; CSS</span><span class="tag tag-neutral">Workshop facilitation</span><span class="tag tag-neutral">Typography</span></div>
+</section>
+</main>
+<footer class="site-foot text-muted">© 2026 Johan de Jong</footer>
+</div>
+</div>
+<script>
+const nav = document.getElementById('top'), btn = nav.querySelector('.menu-btn');
+btn.addEventListener('click', () => btn.setAttribute('aria-expanded', nav.classList.toggle('open')));
+</script>
+</body>
+</html>
