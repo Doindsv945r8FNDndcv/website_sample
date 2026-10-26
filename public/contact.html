@@ -20,19 +20,19 @@
 <div>
 <h1>Let's talk.</h1>
 <p class="lede text-muted">I'm open to design lead roles, research projects and the occasional talk. I usually reply within two days.</p>
-<a class="email" href="mailto:hello@junokafor.com">hello@junokafor.com</a>
 <div class="links">
 <a href="#"><span>LinkedIn</span><span class="handle text-muted">/in/junokafor</span></a>
 <a href="#"><span>Read.cv</span><span class="handle text-muted">read.cv/jun</span></a>
 <a href="#"><span>Instagram</span><span class="handle text-muted">@junatnight</span></a>
 </div>
 </div>
-<form class="card elev-md note-form" onsubmit="event.preventDefault();this.querySelector('.form-status').textContent='Thanks. Your note is ready to send once the form is wired to an inbox.'">
+<form class="card elev-md note-form" id="note-form" action="/api/contact" method="post">
 <div class="card-kicker">Send a note</div>
 <div class="field"><label for="f-name">Name</label><input class="input" id="f-name" name="name" placeholder="Your name" required></div>
 <div class="field"><label for="f-email">Email</label><input class="input" id="f-email" name="email" type="email" placeholder="you@example.com" required></div>
-<div class="field"><label>About</label><div class="seg"><label class="seg-opt"><input type="radio" name="about" checked>A role</label><label class="seg-opt"><input type="radio" name="about">A project</label><label class="seg-opt"><input type="radio" name="about">Something else</label></div></div>
-<div class="field"><label for="f-msg">Message</label><textarea class="input" id="f-msg" name="message" placeholder="A few lines is plenty"></textarea></div>
+<div class="field"><label>About</label><div class="seg"><label class="seg-opt"><input type="radio" name="about" value="A role" checked>A role</label><label class="seg-opt"><input type="radio" name="about" value="A project">A project</label><label class="seg-opt"><input type="radio" name="about" value="Something else">Something else</label></div></div>
+<div class="field"><label for="f-msg">Message</label><textarea class="input" id="f-msg" name="message" placeholder="A few lines is plenty" required></textarea></div>
+<div class="hp" aria-hidden="true"><label for="f-website">Website</label><input id="f-website" name="website" tabindex="-1" autocomplete="off"></div>
 <button class="btn btn-primary btn-block" type="submit">Send</button>
 <p class="form-status" role="status"></p>
 </form>
@@ -44,6 +44,27 @@
 <script>
 const nav = document.getElementById('top'), btn = nav.querySelector('.menu-btn');
 btn.addEventListener('click', () => btn.setAttribute('aria-expanded', nav.classList.toggle('open')));
+
+const form = document.getElementById('note-form'), status = form.querySelector('.form-status'), send = form.querySelector('button[type=submit]');
+const startedAt = Date.now();
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const data = new FormData(form);
+  data.set('started_at', startedAt);
+  send.disabled = true;
+  status.textContent = 'Sending…';
+  try {
+    const res = await fetch(form.action, { method: 'POST', body: data });
+    const out = await res.json();
+    if (!out.ok) throw new Error(out.error);
+    form.reset();
+    status.textContent = 'Thanks, your note is on its way. I usually reply within two days.';
+  } catch (err) {
+    status.textContent = err.message || 'Your note could not be sent. Please try again later.';
+  } finally {
+    send.disabled = false;
+  }
+});
 </script>
 </body>
 </html>
